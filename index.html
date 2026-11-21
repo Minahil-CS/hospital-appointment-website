@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetheris Medical Center | Compassionate Care & Online Appointments</title>
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        medical: {
+                            navy: '#0F2942',
+                            teal: '#0D7A7E',
+                            tealLight: '#149B9F',
+                            mint: '#E6F5F4',
+                            sky: '#EBF5FF',
+                            slate: '#F8FAFC',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-medical-teal selection:text-white">
+
+    <!-- Top Emergency & Info Bar -->
+    <div class="bg-medical-navy text-white text-xs sm:text-sm py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-4">
+                <span class="inline-flex items-center gap-1.5 font-medium text-emerald-300">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    24/7 Emergency Trauma & ICU Open
+                </span>
+                <span class="hidden md:inline text-slate-300">|</span>
+                <span class="hidden md:inline text-slate-300"><i class="fa-solid fa-location-dot mr-1.5 text-teal-400"></i>740 Healthcare Blvd, Medical District</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:18005550199" class="font-semibold text-amber-300 hover:text-amber-200 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-truck-medical"></i>
+                    <span>Emergency: 1-800-555-0199</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Hospital Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-medical-teal to-medical-navy flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-heart-pulse text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl tracking-tight text-medical-navy block leading-none">AETHERIS</span>
+                        <span class="text-[11px] font-semibold uppercase tracking-widest text-medical-teal">Medical Center</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                    <a href="#services" class="hover:text-medical-teal transition">Services</a>
+                    <a href="#doctors" class="hover:text-medical-teal transition">Our Specialists</a>
+                    <a href="#how-it-works" class="hover:text-medical-teal transition">Patient Guide</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-3">
+                    <!-- My Appointments Button with Badge -->
+                    <button onclick="openMyAppointmentsModal()" class="relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-medical-navy bg-slate-100 hover:bg-slate-200/80 transition">
+                        <i class="fa-regular fa-calendar-check text-medical-teal text-base"></i>
+                        <span class="hidden sm:inline">My Appointments</span>
+                        <span id="appointment-badge" class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold rounded-full bg-medical-teal text-white">0</span>
+                    </button>
+
+                    <!-- Primary Book CTA -->
+                    <button onclick="openBookingModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-medical-teal hover:bg-medical-navy shadow-md hover:shadow-lg transition-all">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Book Visit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-medical-navy via-[#133859] to-medical-teal text-white py-16 sm:py-24">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-teal-300 blur-3xl"></div>
+            <div class="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-sky-400 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Mission & CTAs -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-teal-200 text-xs sm:text-sm font-medium backdrop-blur-sm">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <span>Accredited Center of Clinical Excellence</span>
+                    </div>
+
+                    <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        World-Class Healthcare, <span class="text-teal-300">Centered Around You.</span>
+                    </h1>
+
+                    <p class="text-slate-200 text-base sm:text-lg max-w-2xl leading-relaxed">
+                        Our mission is to combine compassionate human care with breakthrough medical diagnostics. Skip the waiting room—explore specialists, check consultation availability, and reserve your visit in under 60 seconds.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <button onclick="openBookingModal()" class="px-7 py-4 rounded-xl bg-teal-400 hover:bg-teal-300 text-medical-navy font-bold text-base shadow-xl shadow-teal-950/30 transition transform hover:-translate-y-0.5 flex items-center gap-2.5">
+                            <i class="fa-regular fa-calendar-plus text-lg"></i>
+                            <span>Book Appointment Now</span>
+                        </button>
+                        <a href="#doctors" class="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-base transition flex items-center gap-2">
+                            <span>Find a Doctor</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/15 max-w-lg">
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-white">45+</div>
+                            <div class="text-xs sm:text-sm text-teal-200">Board Specialists</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-white">99.2%</div>
+                            <div class="text-xs sm:text-sm text-teal-200">Patient Satisfaction</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-white">&lt;15m</div>
+                            <div class="text-xs sm:text-sm text-teal-200">Avg. Wait Time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Quick Emergency & Clinic Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/15 pb-4">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-teal-300 font-semibold">Direct Hospital Desk</span>
+                                <h2 class="font-display text-xl font-bold text-white mt-0.5">Urgent & Outpatient Care</h2>
+                            </div>
+                            <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center text-rose-300">
+                                <i class="fa-solid fa-phone-volume text-xl animate-bounce"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-medical-navy/60 rounded-2xl p-4 border border-white/10 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-slate-300">24/7 Ambulance & Trauma Hotline</p>
+                                    <p class="text-lg sm:text-xl font-bold text-amber-300 tracking-wide">1-800-555-0199</p>
+                                </div>
+                                <a href="tel:18005550199" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold uppercase tracking-wider transition">
+                                    Call Now
+                                </a>
+                            </div>
+
+                            <div class="bg-medical-navy/40 rounded-2xl p-4 border border-white/10 space-y-2.5 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-300"><i class="fa-regular fa-clock mr-2 text-teal-300"></i>Outpatient Clinics</span>
+                                    <span class="font-semibold text-white">Mon – Sat, 8:00 AM – 8:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-300"><i class="fa-solid fa-flask mr-2 text-teal-300"></i>Diagnostic Lab & MRI</span>
+                                    <span class="font-semibold text-emerald-300">Open 24 Hours</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal()" class="w-full py-3.5 rounded-xl bg-white text-medical-navy hover:bg-medical-mint font-bold text-sm transition flex items-center justify-center gap-2 shadow-md">
+                            <span>Schedule Same-Day Consultation</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Services Section -->
+    <section id="services" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-medical-mint text-medical-teal font-semibold text-xs uppercase tracking-wider mb-3">Clinical Departments</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-medical-navy">Comprehensive Medical Services</h2>
+            <p class="text-slate-600 mt-3 text-base sm:text-lg">Select a specialty department below to view consultation details, standard durations, and directly book with our specialists.</p>
+        </div>
+
+        <!-- Services Grid (Rendered via JS) -->
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Dynamic Service Cards -->
+        </div>
+    </section>
+
+    <!-- Doctors Directory Section -->
+    <section id="doctors" class="py-16 sm:py-24 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-medical-sky text-medical-navy font-semibold text-xs uppercase tracking-wider mb-3">Medical Faculty</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-medical-navy">Meet Our Board-Certified Doctors</h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl">Filter by department or search by doctor name to review credentials, experience, and weekly clinic hours.</p>
+                </div>
+
+                <!-- Search Input -->
+                <div class="w-full lg:w-80 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="doctor-search" placeholder="Search doctor or qualification..." 
+                           class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent text-sm transition">
+                </div>
+            </div>
+
+            <!-- Specialty Filter Pills -->
+            <div id="specialty-filters" class="flex flex-wrap items-center gap-2.5 mb-10">
+                <!-- Dynamic Filter Buttons -->
+            </div>
+
+            <!-- Doctors Grid (Rendered via JS) -->
+            <div id="doctors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Dynamic Doctor Cards -->
+            </div>
+
+            <!-- Empty State for Search -->
+            <div id="doctors-empty" class="hidden text-center py-16 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
+                <div class="w-16 h-16 rounded-full bg-slate-200/70 text-slate-500 flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-medical-navy">No matching specialists found</h3>
+                <p class="text-slate-500 text-sm mt-1">Try clearing your search term or selecting "All Departments".</p>
+                <button onclick="resetDoctorFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-medical-teal text-white text-sm font-semibold hover:bg-medical-navy transition">
+                    Reset Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-medical-mint to-medical-sky rounded-3xl p-8 sm:p-12 border border-teal-200/60">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-medical-navy">Seamless 3-Step Appointment Booking</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Designed for clarity and speed—no account registration required.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <div class="w-10 h-10 rounded-xl bg-medical-teal text-white font-display font-bold flex items-center justify-center mb-4">1</div>
+                    <h3 class="font-display font-bold text-lg text-medical-navy mb-2">Choose Specialty & Doctor</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Select your required medical department and pick from our verified specialists based on their availability.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <div class="w-10 h-10 rounded-xl bg-medical-teal text-white font-display font-bold flex items-center justify-center mb-4">2</div>
+                    <h3 class="font-display font-bold text-lg text-medical-navy mb-2">Pick Date & Time Slot</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Choose a convenient date and morning or afternoon consultation slot with real-time slot confirmation.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <div class="w-10 h-10 rounded-xl bg-medical-teal text-white font-display font-bold flex items-center justify-center mb-4">3</div>
+                    <h3 class="font-display font-bold text-lg text-medical-navy mb-2">Instant Receipt & Management</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Receive a unique reference ID immediately and view or manage your bookings anytime under "My Appointments".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-medical-navy text-slate-300 py-14 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-medical-teal flex items-center justify-center text-white">
+                        <i class="fa-solid fa-heart-pulse text-lg"></i>
+                    </div>
+                    <span class="font-display font-extrabold text-xl text-white">AETHERIS MEDICAL CENTER</span>
+                </div>
+                <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+                    Delivering compassionate, evidence-based medical care across 6 core specialties. Equipped with modern diagnostic suites and patient-first outpatient services.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#services" class="hover:text-teal-300 transition">Medical Departments</a></li>
+                    <li><a href="#doctors" class="hover:text-teal-300 transition">Doctor Directory</a></li>
+                    <li><button onclick="openBookingModal()" class="hover:text-teal-300 transition">Book Appointment</button></li>
+                    <li><button onclick="openMyAppointmentsModal()" class="hover:text-teal-300 transition">Manage Bookings</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-white mb-4">Contact & Location</h4>
+                <ul class="space-y-2.5 text-sm text-slate-400">
+                    <li><i class="fa-solid fa-location-dot text-teal-400 mr-2"></i>740 Healthcare Blvd, Suite 100</li>
+                    <li><i class="fa-solid fa-phone text-teal-400 mr-2"></i>Appointments: (800) 555-0142</li>
+                    <li><i class="fa-solid fa-truck-medical text-rose-400 mr-2"></i>Emergency: 1-800-555-0199</li>
+                    <li><i class="fa-solid fa-envelope text-teal-400 mr-2"></i>care@aetherismedical.org</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-white/10 text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p>&copy; 2026 Aetheris Medical Center. All rights reserved.</p>
+            <p>Patient Privacy & HIPAA Compliant Portal</p>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 1: APPOINTMENT BOOKING & CONFIRMATION RECEIPT MODAL             -->
+    <!-- ===================================================================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8 transform transition-all">
+            <!-- Modal Header -->
+            <div class="bg-medical-navy text-white px-6 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-medical-teal flex items-center justify-center">
+                        <i class="fa-regular fa-calendar-check text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 id="booking-modal-title" class="font-display font-bold text-lg">Book an Appointment</h3>
+                        <p id="booking-modal-subtitle" class="text-xs text-teal-200">Complete the details below to reserve your visit</p>
+                    </div>
+                </div>
+                <button onclick="closeBookingModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Booking Form View -->
+            <form id="appointment-form" class="p-6 sm:p-8 space-y-5" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <!-- Department / Service Selection -->
+                    <div>
+                        <label for="book-department" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Department / Service *</label>
+                        <select id="book-department" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm font-medium">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+
+                    <!-- Doctor Selection (Auto-filtered by department) -->
+                    <div>
+                        <label for="book-doctor" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Select Specialist *</label>
+                        <select id="book-doctor" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm font-medium">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Selected Doctor Quick Summary Banner -->
+                <div id="selected-doctor-info" class="bg-medical-mint/70 border border-teal-200 rounded-2xl p-3.5 flex items-center justify-between text-xs sm:text-sm">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Date & Time Slot Selection -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="book-date" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Preferred Date *</label>
+                        <input type="date" id="book-date" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm font-medium">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Available Time Slot *</label>
+                        <div id="time-slots-container" class="grid grid-cols-3 gap-2">
+                            <!-- Populated via JS -->
+                        </div>
+                        <input type="hidden" id="book-time" required>
+                    </div>
+                </div>
+
+                <hr class="border-slate-200">
+
+                <!-- Patient Details -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="patient-name" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Patient Full Name *</label>
+                        <input type="text" id="patient-name" placeholder="e.g., Sarah Jenkins" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm">
+                    </div>
+                    <div>
+                        <label for="patient-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Phone Number *</label>
+                        <input type="tel" id="patient-phone" placeholder="e.g., (555) 234-5678" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="patient-email" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Email Address *</label>
+                    <input type="email" id="patient-email" placeholder="sarah.jenkins@example.com" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label for="visit-reason" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Reason for Visit / Symptoms *</label>
+                    <textarea id="visit-reason" rows="2" placeholder="Briefly describe your symptoms or reason for consultation..." required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-medical-teal focus:outline-none text-sm"></textarea>
+                </div>
+
+                <!-- Validation Error Banner -->
+                <div id="form-error-box" class="hidden p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-circle-exclamation text-base"></i>
+                    <span id="form-error-text">Please fill in all required fields correctly.</span>
+                </div>
+
+                <!-- Submit Actions -->
+                <div class="flex items-center justify-end gap-3 pt-2">
+                    <button type="button" onclick="closeBookingModal()" class="px-5 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-100 transition">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-7 py-3 rounded-xl text-sm font-bold text-white bg-medical-teal hover:bg-medical-navy shadow-md hover:shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Confirm Appointment</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Instant Booking Confirmation Receipt View (Hidden initially) -->
+            <div id="booking-receipt-view" class="hidden p-6 sm:p-8 space-y-6">
+                <div class="text-center space-y-2">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-3xl shadow-inner">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="font-display text-2xl font-extrabold text-medical-navy">Appointment Confirmed!</h4>
+                    <p class="text-sm text-slate-600">Your consultation has been scheduled. Please arrive 15 minutes early.</p>
+                </div>
+
+                <!-- Receipt Card -->
+                <div id="receipt-details-card" class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3 text-sm">
+                    <!-- Populated via JS -->
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                    <button onclick="copyReceiptReference()" class="px-4 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-bold flex items-center gap-2 transition">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>Copy Reference ID</span>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <button onclick="closeBookingModal(); openMyAppointmentsModal();" class="px-5 py-2.5 rounded-xl bg-medical-sky text-medical-navy hover:bg-sky-200/70 text-xs font-bold transition">
+                            View My Appointments
+                        </button>
+                        <button onclick="closeBookingModal()" class="px-6 py-2.5 rounded-xl bg-medical-teal text-white hover:bg-medical-navy text-xs font-bold transition">
+                            Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 2: MY APPOINTMENTS DRAWER / MODAL (LOCALSTORAGE MANAGED)        -->
+    <!-- ===================================================================== -->
+    <div id="my-appointments-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8">
+            <div class="bg-medical-navy text-white px-6 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-medical-teal flex items-center justify-center">
+                        <i class="fa-solid fa-clipboard-list text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">My Booked Appointments</h3>
+                        <p class="text-xs text-teal-200">View status or cancel upcoming hospital visits</p>
+                    </div>
+                </div>
+                <button onclick="closeMyAppointmentsModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 max-h-[70vh] overflow-y-auto">
+                <div id="appointments-list-container" class="space-y-4">
+                    <!-- Dynamic Appointments List -->
+                </div>
+            </div>
+
+            <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
+                <span class="text-xs text-slate-500"><i class="fa-solid fa-database mr-1.5 text-medical-teal"></i>Saved locally in your browser</span>
+                <button onclick="closeMyAppointmentsModal(); openBookingModal();" class="px-5 py-2.5 rounded-xl bg-medical-teal hover:bg-medical-navy text-white text-xs font-bold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Book New Appointment</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- CUSTOM CONFIRMATION DIALOG (REPLACES NATIVE confirm())                -->
+    <!-- ===================================================================== -->
+    <div id="cancel-confirm-modal" class="fixed inset-0 z-[60] hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+            <div class="flex items-center gap-3 text-rose-600">
+                <div class="w-11 h-11 rounded-full bg-rose-100 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-medical-navy">Cancel Appointment?</h4>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Are you sure you want to cancel appointment <span id="cancel-ref-label" class="font-bold text-medical-navy"></span>? This action will release your reserved time slot.
+            </p>
+            <div class="flex justify-end gap-3 pt-2">
+                <button onclick="closeCancelConfirmModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition">
+                    Keep Appointment
+                </button>
+                <button id="confirm-cancel-btn" class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 transition">
+                    Yes, Cancel Visit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[70] flex flex-col gap-2.5 pointer-events-none"></div>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
+    <!-- ===================================================================== -->
+    <script>
+        /**
+         * 1. MEDICAL DATA REPOSITORY
+         * Structured dataset of departments/services and board-certified specialists.
+         */
+        const MEDICAL_SERVICES = [
+            {
+                id: 'Cardiology',
+                name: 'Cardiology',
+                icon: 'fa-heart-pulse',
+                color: 'bg-rose-50 text-rose-600 border-rose-100',
+                description: 'Comprehensive heart health diagnostics, ECG, echocardiography, hypertension management, and preventive cardiovascular care.',
+                fee: '$150',
+                duration: '40 mins'
+            },
+            {
+                id: 'Neurology',
+                name: 'Neurology',
+                icon: 'fa-brain',
+                color: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+                description: 'Specialized evaluation and treatment for migraines, nerve disorders, memory conditions, epilepsy, and stroke recovery.',
+                fee: '$175',
+                duration: '45 mins'
+            },
+            {
+                id: 'Pediatrics',
+                name: 'Pediatrics',
+                icon: 'fa-baby',
+                color: 'bg-sky-50 text-sky-600 border-sky-100',
+                description: 'Gentle, attentive healthcare for infants, children, and adolescents—including wellness checkups, vaccinations, and acute care.',
+                fee: '$110',
+                duration: '30 mins'
+            },
+            {
+                id: 'Orthopedics',
+                name: 'Orthopedics',
+                icon: 'fa-bone',
+                color: 'bg-amber-50 text-amber-600 border-amber-100',
+                description: 'Advanced bone, joint, spine, and sports injury care with non-surgical rehabilitation and minimally invasive surgical options.',
+                fee: '$160',
+                duration: '35 mins'
+            },
+            {
+                id: 'Dermatology',
+                name: 'Dermatology',
+                icon: 'fa-hand-dots',
+                color: 'bg-teal-50 text-teal-600 border-teal-100',
+                description: 'Clinical skin screenings, acne and eczema therapy, mole mapping, and restorative dermatological procedures.',
+                fee: '$125',
+                duration: '25 mins'
+            },
+            {
+                id: 'General Medicine',
+                name: 'General Medicine',
+                icon: 'fa-stethoscope',
+                color: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+                description: 'Primary care consultations, annual physicals, chronic illness management, metabolic screenings, and preventive wellness.',
+                fee: '$95',
+                duration: '30 mins'
+            }
+        ];
+
+        const DOCTORS = [
+            {
+                id: 'doc-1',
+                name: 'Dr. Elena Vance, MD',
+                specialty: 'Cardiology',
+                qualifications: 'MD, FACC — Johns Hopkins School of Medicine',
+                experience: 16,
+                rating: 4.9,
+                reviews: 214,
+                availableDays: 'Mon, Wed, Fri',
+                hours: '09:00 AM – 04:00 PM',
+                initials: 'EV',
+                avatarBg: 'from-teal-600 to-medical-navy',
+                slots: ['09:30 AM', '11:00 AM', '02:00 PM', '03:30 PM']
+            },
+            {
+                id: 'doc-2',
+                name: 'Dr. Marcus Sterling, MD',
+                specialty: 'Neurology',
+                qualifications: 'MD, PhD — Harvard Medical School',
+                experience: 19,
+                rating: 4.9,
+                reviews: 189,
+                availableDays: 'Tue, Thu, Sat',
+                hours: '10:00 AM – 05:00 PM',
+                initials: 'MS',
+                avatarBg: 'from-indigo-600 to-slate-800',
+                slots: ['10:00 AM', '11:30 AM', '01:30 PM', '04:00 PM']
+            },
+            {
+                id: 'doc-3',
+                name: 'Dr. Priya Nair, MD',
+                specialty: 'Pediatrics',
+                qualifications: 'MD, FAAP — Stanford University',
+                experience: 12,
+                rating: 5.0,
+                reviews: 310,
+                availableDays: 'Mon – Fri',
+                hours: '08:30 AM – 03:30 PM',
+                initials: 'PN',
+                avatarBg: 'from-sky-500 to-teal-700',
+                slots: ['09:00 AM', '10:30 AM', '01:00 PM', '02:30 PM']
+            },
+            {
+                id: 'doc-4',
+                name: 'Dr. Julian Mercer, DO',
+                specialty: 'Orthopedics',
+                qualifications: 'DO, FAAOS — Mayo Clinic Fellowship',
+                experience: 14,
+                rating: 4.8,
+                reviews: 176,
+                availableDays: 'Mon, Tue, Thu',
+                hours: '09:00 AM – 04:30 PM',
+                initials: 'JM',
+                avatarBg: 'from-amber-600 to-medical-navy',
+                slots: ['09:30 AM', '11:30 AM', '02:00 PM', '04:00 PM']
+            },
+            {
+                id: 'doc-5',
+                name: 'Dr. Camille Laurent, MD',
+                specialty: 'Dermatology',
+                qualifications: 'MD, FAAD — Columbia University',
+                experience: 10,
+                rating: 4.9,
+                reviews: 242,
+                availableDays: 'Wed, Thu, Fri',
+                hours: '10:00 AM – 05:00 PM',
+                initials: 'CL',
+                avatarBg: 'from-emerald-600 to-teal-800',
+                slots: ['10:00 AM', '12:00 PM', '02:30 PM', '04:30 PM']
+            },
+            {
+                id: 'doc-6',
+                name: 'Dr. David Chen, MD',
+                specialty: 'General Medicine',
+                qualifications: 'MD, FACP — University of Michigan',
+                experience: 15,
+                rating: 4.8,
+                reviews: 295,
+                availableDays: 'Mon – Sat',
+                hours: '08:00 AM – 04:00 PM',
+                initials: 'DC',
+                avatarBg: 'from-medical-teal to-medical-navy',
+                slots: ['08:30 AM', '10:00 AM', '01:30 PM', '03:00 PM']
+            },
+            {
+                id: 'doc-7',
+                name: 'Dr. Sophia Alverez, MD',
+                specialty: 'Cardiology',
+                qualifications: 'MD, FACC — Duke University Medical Center',
+                experience: 11,
+                rating: 4.8,
+                reviews: 148,
+                availableDays: 'Tue, Thu, Sat',
+                hours: '09:00 AM – 03:00 PM',
+                initials: 'SA',
+                avatarBg: 'from-rose-600 to-medical-navy',
+                slots: ['09:00 AM', '11:00 AM', '01:00 PM', '02:30 PM']
+            },
+            {
+                id: 'doc-8',
+                name: 'Dr. Henrik Lindqvist, MD',
+                specialty: 'General Medicine',
+                qualifications: 'MD — Karolinska Institutet',
+                experience: 21,
+                rating: 4.9,
+                reviews: 330,
+                availableDays: 'Mon, Wed, Fri',
+                hours: '09:30 AM – 05:30 PM',
+                initials: 'HL',
+                avatarBg: 'from-slate-700 to-medical-teal',
+                slots: ['09:30 AM', '11:30 AM', '02:30 PM', '04:30 PM']
+            }
+        ];
+
+        /**
+         * 2. APPLICATION STATE & LOCALSTORAGE HELPERS
+         */
+        const STORAGE_KEY = 'aetheris_hospital_appointments_v1';
+        let activeSpecialtyFilter = 'All';
+        let searchQuery = '';
+        let latestReceiptId = '';
+        let pendingCancelId = null;
+
+        function getStoredAppointments() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                console.error('Failed to parse appointments from localStorage:', e);
+                return [];
+            }
+        }
+
+        function saveAppointments(appointments) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appointments));
+                updateAppointmentBadge();
+            } catch (e) {
+                console.error('Failed to save appointments to localStorage:', e);
+                showToast('Unable to save appointment locally.', 'error');
+            }
+        }
+
+        function updateAppointmentBadge() {
+            const appointments = getStoredAppointments();
+            const activeCount = appointments.filter(app => app.status === 'Confirmed').length;
+            const badge = document.getElementById('appointment-badge');
+            if (badge) {
+                badge.textContent = activeCount;
+            }
+        }
+
+        /**
+         * 3. RENDERING FUNCTIONS (SERVICES & DOCTORS)
+         */
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            grid.innerHTML = MEDICAL_SERVICES.map(service => `
+                <div class="group bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-medical-teal/40 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-14 h-14 rounded-2xl border ${service.color} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid ${service.icon}"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-xs font-semibold text-slate-400 uppercase">Consultation</span>
+                                <span class="font-display font-bold text-lg text-medical-navy">${service.fee}</span>
+                            </div>
+                        </div>
+
+                        <h3 class="font-display font-bold text-xl text-medical-navy group-hover:text-medical-teal transition">${service.name}</h3>
+                        <p class="text-slate-600 text-sm mt-2.5 leading-relaxed">${service.description}</p>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs font-medium text-slate-500 flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-medical-teal"></i>
+                            Avg. ${service.duration}
+                        </span>
+                        <button onclick="openBookingModal('${service.id}')" class="inline-flex items-center gap-1.5 text-sm font-bold text-medical-teal hover:text-medical-navy transition">
+                            <span>Book Department</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderSpecialtyFilters() {
+            const container = document.getElementById('specialty-filters');
+            const specialties = ['All', ...MEDICAL_SERVICES.map(s => s.name)];
+
+            container.innerHTML = specialties.map(spec => {
+                const isActive = activeSpecialtyFilter === spec;
+                const activeClasses = isActive
+                    ? 'bg-medical-navy text-white shadow-md border-medical-navy'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200/80 border-transparent';
+
+                return `
+                    <button onclick="setSpecialtyFilter('${spec}')" 
+                            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition ${activeClasses}">
+                        ${spec === 'All' ? 'All Departments' : spec}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function setSpecialtyFilter(specialty) {
+            activeSpecialtyFilter = specialty;
+            renderSpecialtyFilters();
+            renderDoctors();
+        }
+
+        function resetDoctorFilters() {
+            activeSpecialtyFilter = 'All';
+            searchQuery = '';
+            document.getElementById('doctor-search').value = '';
+            renderSpecialtyFilters();
+            renderDoctors();
+        }
+
+        function renderDoctors() {
+            const grid = document.getElementById('doctors-grid');
+            const emptyState = document.getElementById('doctors-empty');
+
+            const filtered = DOCTORS.filter(doc => {
+                const matchesSpecialty = activeSpecialtyFilter === 'All' || doc.specialty === activeSpecialtyFilter;
+                const q = searchQuery.toLowerCase().trim();
+                const matchesQuery = !q || 
+                    doc.name.toLowerCase().includes(q) || 
+                    doc.specialty.toLowerCase().includes(q) || 
+                    doc.qualifications.toLowerCase().includes(q);
+                return matchesSpecialty && matchesQuery;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(doc => `
+                <div class="bg-slate-50/70 hover:bg-white rounded-3xl p-6 border border-slate-200/90 hover:border-medical-teal/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <!-- Doctor Header -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br ${doc.avatarBg} text-white font-display font-bold text-xl flex items-center justify-center shrink-0 shadow-md">
+                                ${doc.initials}
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <span class="inline-block px-2.5 py-0.5 rounded-lg bg-medical-mint text-medical-teal text-xs font-bold mb-1">
+                                    ${doc.specialty}
+                                </span>
+                                <h3 class="font-display font-bold text-lg text-medical-navy truncate">${doc.name}</h3>
+                                <p class="text-xs text-slate-500 mt-0.5 line-clamp-1">${doc.qualifications}</p>
+                            </div>
+                        </div>
+
+                        <!-- Stats Row -->
+                        <div class="grid grid-cols-2 gap-3 my-5 p-3.5 rounded-2xl bg-white border border-slate-100 text-xs">
+                            <div>
+                                <span class="text-slate-400 block">Experience</span>
+                                <span class="font-bold text-medical-navy text-sm">${doc.experience}+ Years</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block">Patient Rating</span>
+                                <span class="font-bold text-medical-navy text-sm flex items-center gap-1">
+                                    <i class="fa-solid fa-star text-amber-400"></i> ${doc.rating} 
+                                    <span class="text-slate-400 font-normal">(${doc.reviews})</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Availability Schedule -->
+                        <div class="space-y-1.5 text-xs text-slate-600 mb-6">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400"><i class="fa-regular fa-calendar mr-1.5 text-medical-teal"></i>Available Days:</span>
+                                <span class="font-semibold text-slate-700">${doc.availableDays}</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400"><i class="fa-regular fa-clock mr-1.5 text-medical-teal"></i>Clinic Hours:</span>
+                                <span class="font-semibold text-slate-700">${doc.hours}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openBookingModal('${doc.specialty}', '${doc.id}')" 
+                            class="w-full py-3 rounded-xl bg-medical-navy hover:bg-medical-teal text-white font-semibold text-sm transition flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-regular fa-calendar-plus"></i>
+                        <span>Book with ${doc.name.split(',')[0]}</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * 4. BOOKING MODAL LOGIC & AUTO-FILTERING
+         */
+        function openBookingModal(preselectedDepartment = '', preselectedDoctorId = '') {
+            const modal = document.getElementById('booking-modal');
+            const form = document.getElementById('appointment-form');
+            const receiptView = document.getElementById('booking-receipt-view');
+            const errorBox = document.getElementById('form-error-box');
+
+            // Reset views
+            form.reset();
+            form.classList.remove('hidden');
+            receiptView.classList.add('hidden');
+            errorBox.classList.add('hidden');
+            document.getElementById('booking-modal-title').textContent = 'Book an Appointment';
+            document.getElementById('booking-modal-subtitle').textContent = 'Complete the details below to reserve your visit';
+
+            // Populate Department Dropdown
+            const deptSelect = document.getElementById('book-department');
+            deptSelect.innerHTML = MEDICAL_SERVICES.map(s => 
+                `<option value="${s.id}">${s.name} (${s.fee})</option>`
+            ).join('');
+
+            if (preselectedDepartment) {
+                deptSelect.value = preselectedDepartment;
+            }
+
+            // Set Date input minimum to today & default to tomorrow
+            const dateInput = document.getElementById('book-date');
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            dateInput.min = today.toISOString().split('T')[0];
+            dateInput.value = tomorrow.toISOString().split('T')[0];
+
+            // Populate Doctors for selected department
+            updateDoctorDropdown(preselectedDoctorId);
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function updateDoctorDropdown(preferredDoctorId = '') {
+            const selectedDept = document.getElementById('book-department').value;
+            const docSelect = document.getElementById('book-doctor');
+            const matchingDoctors = DOCTORS.filter(d => d.specialty === selectedDept);
+
+            docSelect.innerHTML = matchingDoctors.map(doc => 
+                `<option value="${doc.id}">${doc.name} (${doc.experience} yrs exp)</option>`
+            ).join('');
+
+            if (preferredDoctorId && matchingDoctors.some(d => d.id === preferredDoctorId)) {
+                docSelect.value = preferredDoctorId;
+            }
+
+            updateDoctorSlotDetails();
+        }
+
+        function updateDoctorSlotDetails() {
+            const docId = document.getElementById('book-doctor').value;
+            const doctor = DOCTORS.find(d => d.id === docId);
+            const service = MEDICAL_SERVICES.find(s => s.id === doctor?.specialty);
+            const infoBox = document.getElementById('selected-doctor-info');
+            const slotsContainer = document.getElementById('time-slots-container');
+            const hiddenTimeInput = document.getElementById('book-time');
+
+            if (!doctor) return;
+
+            infoBox.innerHTML = `
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-user-doctor text-medical-teal text-base"></i>
+                    <div>
+                        <span class="font-bold text-medical-navy">${doctor.name}</span>
+                        <span class="text-slate-600 block text-xs">Available: ${doctor.availableDays} • Fee: ${service ? service.fee : '$120'}</span>
+                    </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-white text-medical-teal font-bold text-xs shadow-sm">${service ? service.duration : '30 mins'}</span>
+            `;
+
+            // Render interactive time slot pills
+            hiddenTimeInput.value = doctor.slots[0];
+            slotsContainer.innerHTML = doctor.slots.map((slot, idx) => `
+                <button type="button" onclick="selectTimeSlot(this, '${slot}')"
+                        class="time-slot-btn py-2 px-2 rounded-xl text-xs font-bold border transition ${idx === 0 ? 'bg-medical-teal text-white border-medical-teal shadow-sm' : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-medical-teal'}">
+                    ${slot}
+                </button>
+            `).join('');
+        }
+
+        function selectTimeSlot(btnElement, slotValue) {
+            document.getElementById('book-time').value = slotValue;
+            document.querySelectorAll('.time-slot-btn').forEach(btn => {
+                btn.className = 'time-slot-btn py-2 px-2 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:border-medical-teal';
+            });
+            btnElement.className = 'time-slot-btn py-2 px-2 rounded-xl text-xs font-bold border transition bg-medical-teal text-white border-medical-teal shadow-sm';
+        }
+
+        /**
+         * 5. FORM SUBMISSION & RECEIPT GENERATION
+         */
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const department = document.getElementById('book-department').value;
+            const doctorId = document.getElementById('book-doctor').value;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+            const patientName = document.getElementById('patient-name').value.trim();
+            const patientPhone = document.getElementById('patient-phone').value.trim();
+            const patientEmail = document.getElementById('patient-email').value.trim();
+            const reason = document.getElementById('visit-reason').value.trim();
+
+            const errorBox = document.getElementById('form-error-box');
+            const errorText = document.getElementById('form-error-text');
+
+            // Validation checks
+            if (!patientName || patientName.length < 2) {
+                errorText.textContent = 'Please enter the patient’s full name.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+            if (!patientPhone || patientPhone.length < 7) {
+                errorText.textContent = 'Please enter a valid contact phone number.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!patientEmail || !emailRegex.test(patientEmail)) {
+                errorText.textContent = 'Please enter a valid email address.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+            if (!date || !time) {
+                errorText.textContent = 'Please select both a preferred date and time slot.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+            if (!reason) {
+                errorText.textContent = 'Please provide a brief reason for your visit.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+
+            errorBox.classList.add('hidden');
+
+            const doctor = DOCTORS.find(d => d.id === doctorId);
+            const service = MEDICAL_SERVICES.find(s => s.id === department);
+            const refId = 'AMC-' + Math.floor(100000 + Math.random() * 900000);
+            latestReceiptId = refId;
+
+            const newAppointment = {
+                id: refId,
+                department,
+                doctorId,
+                doctorName: doctor ? doctor.name : 'Assigned Specialist',
+                fee: service ? service.fee : '$120',
+                date,
+                time,
+                patientName,
+                patientPhone,
+                patientEmail,
+                reason,
+                status: 'Confirmed',
+                createdAt: new Date().toISOString()
+            };
+
+            // Save to localStorage
+            const existing = getStoredAppointments();
+            existing.unshift(newAppointment);
+            saveAppointments(existing);
+
+            // Switch modal to Receipt View
+            showBookingReceipt(newAppointment);
+            showToast(`Appointment ${refId} confirmed!`, 'success');
+        });
+
+        function showBookingReceipt(app) {
+            const form = document.getElementById('appointment-form');
+            const receiptView = document.getElementById('booking-receipt-view');
+            const card = document.getElementById('receipt-details-card');
+
+            document.getElementById('booking-modal-title').textContent = 'Booking Receipt';
+            document.getElementById('booking-modal-subtitle').textContent = `Reference ID: ${app.id}`;
+
+            const formattedDate = new Date(app.date + 'T00:00:00').toLocaleDateString('en-US', {
+                weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+            });
+
+            card.innerHTML = `
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Reference Number</span>
+                    <span class="font-mono font-bold text-base text-medical-teal bg-medical-mint px-3 py-1 rounded-lg">${app.id}</span>
+                </div>
+                <div class="grid grid-cols-2 gap-y-2.5 text-xs sm:text-sm pt-1">
+                    <span class="text-slate-500">Patient Name:</span>
+                    <span class="font-bold text-medical-navy text-right">${escapeHTML(app.patientName)}</span>
+
+                    <span class="text-slate-500">Department:</span>
+                    <span class="font-semibold text-slate-800 text-right">${app.department}</span>
+
+                    <span class="text-slate-500">Specialist:</span>
+                    <span class="font-bold text-medical-navy text-right">${app.doctorName}</span>
+
+                    <span class="text-slate-500">Date & Time:</span>
+                    <span class="font-bold text-emerald-700 text-right">${formattedDate} at ${app.time}</span>
+
+                    <span class="text-slate-500">Consultation Fee:</span>
+                    <span class="font-semibold text-slate-800 text-right">${app.fee} (Pay at Clinic)</span>
+                </div>
+            `;
+
+            form.classList.add('hidden');
+            receiptView.classList.remove('hidden');
+        }
+
+        function copyReceiptReference() {
+            if (!latestReceiptId) return;
+            const tempInput = document.createElement('input');
+            tempInput.value = latestReceiptId;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`Copied Reference ID: ${latestReceiptId}`, 'success');
+        }
+
+        /**
+         * 6. MY APPOINTMENTS MANAGEMENT MODAL
+         */
+        function openMyAppointmentsModal() {
+            renderMyAppointments();
+            document.getElementById('my-appointments-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeMyAppointmentsModal() {
+            document.getElementById('my-appointments-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function renderMyAppointments() {
+            const container = document.getElementById('appointments-list-container');
+            const appointments = getStoredAppointments();
+
+            if (appointments.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+                        <div class="w-14 h-14 rounded-full bg-medical-mint text-medical-teal flex items-center justify-center mx-auto mb-3 text-2xl">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <h4 class="font-display font-bold text-lg text-medical-navy">No Appointments Yet</h4>
+                        <p class="text-slate-500 text-sm mt-1 max-w-sm mx-auto">You haven't booked any hospital visits yet. Schedule a consultation with our specialists in seconds.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = appointments.map(app => {
+                const isCancelled = app.status === 'Cancelled';
+                const statusBadge = isCancelled
+                    ? '<span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700">Cancelled</span>'
+                    : '<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Confirmed</span>';
+
+                const formattedDate = new Date(app.date + 'T00:00:00').toLocaleDateString('en-US', {
+                    weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+                });
+
+                return `
+                    <div class="rounded-2xl border ${isCancelled ? 'border-slate-200 bg-slate-50/70 opacity-75' : 'border-slate-200 bg-white shadow-sm'} p-5 transition">
+                        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                            <div class="flex items-center gap-2.5">
+                                <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-medical-navy text-white">${app.id}</span>
+                                <span class="text-xs font-bold text-medical-teal uppercase tracking-wider">${app.department}</span>
+                            </div>
+                            ${statusBadge}
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-3.5 text-sm">
+                            <div>
+                                <p class="text-xs text-slate-400">Specialist</p>
+                                <p class="font-bold text-medical-navy">${app.doctorName}</p>
+                                <p class="text-xs text-slate-500 mt-1"><i class="fa-regular fa-user mr-1"></i>Patient: ${escapeHTML(app.patientName)}</p>
+                            </div>
+                            <div class="sm:text-right">
+                                <p class="text-xs text-slate-400">Scheduled Date & Time</p>
+                                <p class="font-bold text-slate-800">${formattedDate}</p>
+                                <p class="text-xs font-semibold text-medical-teal mt-0.5"><i class="fa-regular fa-clock mr-1"></i>${app.time} • Fee: ${app.fee}</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                            <span class="text-slate-500 truncate max-w-md"><strong class="text-slate-700">Reason:</strong> ${escapeHTML(app.reason)}</span>
+                            ${!isCancelled ? `
+                                <button onclick="promptCancelAppointment('${app.id}')" class="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold transition">
+                                    Cancel Appointment
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function promptCancelAppointment(refId) {
+            pendingCancelId = refId;
+            document.getElementById('cancel-ref-label').textContent = refId;
+            document.getElementById('cancel-confirm-modal').classList.remove('hidden');
+        }
+
+        function closeCancelConfirmModal() {
+            pendingCancelId = null;
+            document.getElementById('cancel-confirm-modal').classList.add('hidden');
+        }
+
+        document.getElementById('confirm-cancel-btn').addEventListener('click', function() {
+            if (!pendingCancelId) return;
+            const appointments = getStoredAppointments();
+            const updated = appointments.map(app => 
+                app.id === pendingCancelId ? { ...app, status: 'Cancelled' } : app
+            );
+            saveAppointments(updated);
+            renderMyAppointments();
+            showToast(`Appointment ${pendingCancelId} has been cancelled.`, 'info');
+            closeCancelConfirmModal();
+        });
+
+        /**
+         * 7. TOAST NOTIFICATIONS & UTILITIES
+         */
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const colors = type === 'success'
+                ? 'bg-medical-navy text-white border-teal-400'
+                : type === 'error'
+                ? 'bg-rose-600 text-white border-rose-300'
+                : 'bg-slate-800 text-white border-slate-600';
+
+            const icon = type === 'success'
+                ? 'fa-circle-check text-emerald-400'
+                : type === 'error'
+                ? 'fa-circle-exclamation text-white'
+                : 'fa-circle-info text-teal-300';
+
+            toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl border-l-4 shadow-xl text-xs sm:text-sm font-medium transform transition-all duration-300 translate-y-2 opacity-0 ${colors}`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i><span>${message}</span>`;
+
+            container.appendChild(toast);
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        /**
+         * 8. EVENT LISTENERS & INITIALIZATION
+         */
+        document.getElementById('doctor-search').addEventListener('input', function(e) {
+            searchQuery = e.target.value;
+            renderDoctors();
+        });
+
+        document.getElementById('book-department').addEventListener('change', function() {
+            updateDoctorDropdown();
+        });
+
+        document.getElementById('book-doctor').addEventListener('change', function() {
+            updateDoctorSlotDetails();
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                closeMyAppointmentsModal();
+                closeCancelConfirmModal();
+            }
+        });
+
+        // Initialize Page on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderServices();
+            renderSpecialtyFilters();
+            renderDoctors();
+            updateAppointmentBadge();
+        });
+    </script>
+</body>
+</html>
