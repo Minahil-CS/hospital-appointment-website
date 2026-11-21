@@ -50,3 +50,24 @@ hospital-appointment-website/
 │
 ├── index.html          # Complete application (HTML structure, embedded CSS, and JS logic)
 └── README.md           # Project documentation and setup guide
+```
+🚀 Getting Started
+1. Clone the Repository
+Bash
+git clone [https://github.com/](https://github.com/)<your-username>/hospital-appointment-website.git
+cd hospital-appointment-website
+2. Run Locally
+No build tools, package managers, or local servers are required:
+
+Simply double-click index.html to open it in any modern web browser, or
+
+Use the Live Server extension in VS Code for hot-reloading during customization.
+
+🔮 Future Enhancements
+[ ] Backend REST API integration (Node.js / Express or Firebase) for multi-device booking sync.
+
+[ ] Automated email/SMS appointment reminders.
+
+[ ] Doctor portal dashboard for managing daily patient queues and slot availability.
+
+[ ] Downloadable PDF appointment receipts.
